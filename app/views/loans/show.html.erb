@@ -1,2 +1,5 @@
-<h1><%= @loans.name %></h1>
-<h1><%= @loans.description %></h1>
+<% @loans.each do |loan| %>
+<div class="show"><%= loan.name %></div>
+<div class="show"><%= loan.description %></div>
+------
+<% end %>

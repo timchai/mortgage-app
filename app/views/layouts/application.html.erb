@@ -16,10 +16,10 @@
 
 <ul class="nav navbar-nav navbar-right">
       <% if current_user %>
+        <li><%= current_user.email %> is signed in</li><br>
         <li><%= link_to "Sign Out", "/users/sign_out", method: :delete %></li>
-        <li><a><%= current_user.email %> is signed in</a></li> 
       <% else %>
-        <li><%= link_to "Sign Up", "/users/sign_up" %></li>
+        <li><%= link_to "Sign Up", "/users/sign_up" %></li><br>
         <li><%= link_to "Sign In", "/users/sign_in" %></li>
       <% end %>
       </ul>
@@ -39,7 +39,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
-                <a class="navbar-brand" href="index.html">Business Casual</a>
+                <a class="navbar-brand" href="index.html">Mortgage Finder</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -47,8 +47,9 @@
                     <li>
                         <a><%= link_to "Home", "/" %></a>
                     </li>
+                    
                     <li>
-                        <a><%= link_to "Mortgages" %></a>
+                        <a><%= link_to "Mortgages", "/loans/show" %></a>
                     </li>
                     <li>
                         <a><%= link_to "Rates", "http://www.bankrate.com/finance/mortgages/current-interest-rates.aspx" %></a>

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   
   root to: "loans#index"
-
+  
   resources :loans
 
   # The priority is based upon order of creation: first created -> highest priority.
