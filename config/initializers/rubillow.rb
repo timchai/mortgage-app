@@ -1,3 +1,3 @@
 Rubillow.configure do |configuration|
-  configuration.zwsid = "abcd1234"
+  configuration.zwsid = "X1-ZWz1f3hwtklxjf_3csw9"
 end

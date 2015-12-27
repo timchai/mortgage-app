@@ -2,11 +2,6 @@ class LoansController < ApplicationController
   
   def index
     @loans = Loan.all
-
-    Rubillow.configure do |configuration|
-    configuration.zwsid = "X1-ZWz1f3hwtklxjf_3csw9"
-    #configuration.zwsid = "abcd1234"
-    end
   end
 
   def show
