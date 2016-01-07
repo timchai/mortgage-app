@@ -55,6 +55,9 @@
                         <a><%= link_to "Rates", "/rates" %></a>
                     </li>
                     <li>
+                        <a><%= link_to "Mortgage Calculator" , "/mortgage_calculators" %></a>
+                    </li>
+                    <li>
                         <a><%= link_to "Application", "/applications" %></a>
                     </li>
                     <li>
@@ -66,7 +69,11 @@
         </div>
         <!-- /.container -->
     </nav>
-<%= yield %>
+    
+<div ng-app="app">
+
+    <%= yield %>
+</div>
 
 
     <!-- /.container -->

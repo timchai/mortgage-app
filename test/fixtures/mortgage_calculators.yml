@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  purchase_price: 1
+  loan_amount: 1
+  down_payment: 1
+
+two:
+  purchase_price: 1
+  loan_amount: 1
+  down_payment: 1
