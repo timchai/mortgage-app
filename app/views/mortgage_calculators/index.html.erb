@@ -1,15 +1,11 @@
-<div ng-app="app">
-  {{ 1 + 1 }}
-</div>
-
-<form name=mortgagecalc method=POST>
+<form name="mortgagecalc" method="POST">
   <div class="show">Loan Amount:</div>
-  <div class="letter"><input type=text onkeypress= name=loan size=10></div>
+  <div class="letter"><input id="loansize" type="text" onkeypress=""></div>
   <div class="show">What will be the term of this mortgage (in years)?</div>
-  <div class="letter"><input type=text onkeypress= name=years size=5></div>
+  <div class="letter"><input id="years" type="text" onkeypress="" name="yearsSize"=5></div>
   <div class="show">Interest Rate:</div>
-  <div class="letter"><input type=text onkeypress= name=rate size=5></div>
-  <input type=button onClick="myPayment()" value="Find My Payment"></input>  
+  <div class="letter"><input id="interest" type="text" onkeypress="" name="" rateSize=5></div>
+  <input id="calculate" type="button" onClick="myPayment()" value="Find My Payment"></input>  
 </form>
 
 <div id="monthlyPayment" class="show" ></div>
