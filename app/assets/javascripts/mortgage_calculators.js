@@ -1,8 +1,8 @@
-// (function () {
-//   "use strict";
+(function () {
+  "use strict";
 
-//   angular.module("app").controller("")
-// })
+  angular.module("app").controller("")
+})
 
 $( document ).ready(function() {
 
@@ -13,8 +13,6 @@ $( document ).ready(function() {
     console.log(loanprincipal);
 
     document.getElementById('monthlyPayment').innerHTML = 'Your monthly payment will be ' + '$' + (loanprincipal * interest / (1 - (Math.pow(1/(1 + interest), months)))).toFixed(2)+'.';
+  
   });
 });
-
-// function myPayment() {
-// }

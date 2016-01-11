@@ -6,7 +6,6 @@ class LoansController < ApplicationController
 
   def show
     @loans = Loan.all
-    #@loan = Loan.find_by(id: params[:id])
   end
 
   def new
