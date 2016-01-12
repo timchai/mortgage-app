@@ -5,7 +5,6 @@ class LoansController < ApplicationController
   end
 
   def show
-    @loans = Loan.all
   end
 
   def new

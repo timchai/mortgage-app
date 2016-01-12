@@ -8,7 +8,6 @@ $( document ).ready(function() {
 
   function calculateMonthlyPayments(principal, months, interest) {
     var result = (principal * interest) / (1 - Math.pow((1/(1 + interest)),months));
-  
     return result.toFixed(2);
   };
 

@@ -1,4 +1,4 @@
-<div class="show"><h1>Application Form</h1></div>
+<!-- <div class="show"><h1>Application Form</h1></div>
 <form name="application" method="POST">
   <div class="show">First Name:</div>
   <div class="letter"><input id="loansize" type="text" onkeypress=""></div>
@@ -16,47 +16,6 @@
 </form>
 <div id="terms" class="show" ></div>
 
+<div id="max" class="show" ></div>
+ -->
 
-<div class="box">
-                <div class="col-lg-12">
-                    <hr>
-                    <h2 class="intro-text text-center">
-                        <strong>Application Form</strong>
-                    </h2>
-                    <hr>
-                    <p><%= form_tag '/loans', method: :post do %>
-                    <h6 class="intro-text text-center">
-                      <%= label_tag :first_name, "First Name:" %>
-                      <%= text_area_tag :first_name %>
-                    </h6>
-                    <h6 class="intro-text text-center">
-                      <%= label_tag :last_name, "Last Name:" %>
-                      <%= text_area_tag :last_name %>
-                    </h6>
-                    <h6 class="intro-text text-center">
-                      <%= label_tag :address, "Address:" %>
-                      <%= text_area_tag :address %>
-                    </h6>
-                    <h6 class="intro-text text-center">
-                      <%= label_tag :income, "Annual Gross Income:" %>
-                      <%= text_area_tag :income %>
-                    </h6>
-                    
-                    <h6 class="intro-text text-center">
-                      <%= label_tag :fico_score, "Fico Score:" %>
-                      <%= text_area_tag :fico_score %>
-                    </h6>
-                    
-                    <h6 class="intro-text text-center">
-                      <%= label_tag :bankruptcy, "Bankruptcy within the last seven years?" %>
-                      <%= text_area_tag :bankruptcy %>
-                    
-                    <h6 class="intro-text text-center">
-                      <%= submit_tag "Get approval:" %>
-                      
-                    </h6>
-                      </div>
-                    <% end %></p>
-                </div>
-            </div>
-        </div>

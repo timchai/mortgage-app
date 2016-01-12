@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   
-  root to: "loans#index"
+  root to: "welcome#index"
   
   resources :loans
   resources :rates

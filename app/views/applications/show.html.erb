@@ -1,1 +1,3 @@
-<h1>Here's your offer</h1>
+<% if (@application.bankruptcy == true) || (@application.fico_score < 500) %>
+ "Your loan has been denied."
+<% end %>
