@@ -1,21 +1,38 @@
 (function () {
   "use strict";
+  console.log("did i run")
 
   angular.module("app").controller("")
-})
+})()
 
 $( document ).ready(function() {
 
-// $("#approval").click(function() {
-function approval(income, ficoScore, bankruptcy) {
-  var income = document.getElementById("income").value;
-  var ficoScore = document.getElementById("ficoScore").value;
-  var bankruptcy = document.getElementById("bankruptcy").value;
-  if (bankruptcy = false || ficoScore < 500); {
-    {alert("I'm sorry, your loan application is denied")};
+function checkApproval(income, ficoScore, bankruptcy) {
+  if (bankruptcy === "yes" || ficoScore < 500) {
+    return false;
   }
-  else
-    {alert("You're approved")};
+  return true;
+}
 
-  document.getElementById('terms').innerHTML = 'Test';
-}}
+$('#approval').click(function(){
+    var income = document.getElementById("income").value,
+        ficoScore = document.getElementById("ficoScore").value,
+        bankruptcy = document.getElementById("bankruptcy").value,
+        msg = ""; 
+
+    var approved = checkApproval(income, ficoScore, bankruptcy);
+    
+    if (approved) {
+      msg = "You have been approved for a maximum loan amount of $";
+    } else {
+      msg = "Sorry, you did NOT get approved :(";
+    };        
+
+    document.getElementById('terms').innerHTML = msg;
+})
+/*
+*/
+}) //-> end of document ready load
+
+
+
