@@ -5,7 +5,7 @@ class ApplicationsController < ApplicationController
   end
 
   def show
-    @application = Application.find_by(params[:id])
+    @application = Application.find(params[:id])
   end
 
   def new

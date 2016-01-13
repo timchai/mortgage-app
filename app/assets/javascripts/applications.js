@@ -30,10 +30,6 @@ $('#approval').click(function(){
 
     document.getElementById('terms').innerHTML = msg;
 
-// $('#maxLoan').click(function(){
-    
-// }
-
 })
 /*
 */

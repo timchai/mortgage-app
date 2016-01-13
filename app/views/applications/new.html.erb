@@ -8,29 +8,32 @@
                     <p><%= form_for @application do |f|%>
                     <h6 class="intro-text text-center">
                       <%= f.label :first_name, "First Name:" %>
-                      <%= f.text_area :first_name %>
+                      <%= f.text_field :first_name %>
                     </h6>
                     <h6 class="intro-text text-center">
                       <%= f.label :last_name, "Last Name:" %>
-                      <%= f.text_area :last_name %>
+                      <%= f.text_field :last_name %>
                     </h6>
                     <h6 class="intro-text text-center">
                       <%= f.label :address, "Address:" %>
-                      <%= f.text_area :address %>
+                      <%= f.text_field :address %>
                     </h6>
                     <h6 class="intro-text text-center">
                       <%= f.label :income, "Annual Gross Income:" %>
-                      <%= f.text_area :income %>
+                      <%= f.text_field :income %>
                     </h6>
                     
                     <h6 class="intro-text text-center">
                       <%= f.label :fico_score, "Fico Score:" %>
-                      <%= f.text_area :fico_score %>
+                      <%= f.text_field :fico_score %>
                     </h6>
                     
                     <h6 class="intro-text text-center">
                       <%= f.label :bankruptcy, "Bankruptcy within the last seven years?" %>
-                      <%= f.text_area :bankruptcy %>
+                      <%= f.radio_button :bankruptcy, 'true', :value => true %>
+                      <%= label :bankruptcy, 'Yes' %>
+                      <%= f.radio_button :bankruptcy, 'false', :value => false %>
+                      <%= label :bankruptcy, 'No' %>
                     
                     <h6 class="intro-text text-center">
                       <%= f.submit "Get approval:" %>

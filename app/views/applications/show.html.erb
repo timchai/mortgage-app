@@ -1,3 +1,18 @@
+<!-- Bankruptcy: <%= @application.bankruptcy %><br/>
+Score: <%= @application.fico_score %>  -->
+
 <% if (@application.bankruptcy == true) || (@application.fico_score < 500) %>
- "Your loan has been denied."
+   <div class="show">Your loan has been denied.</div>
+<% else %>
+
+  <div class="show">Your loan has been approved.</div>
+  <div class="show">Max loan: <%= @application.max_loan %></div>
+    
 <% end %>
+
+
+
+
+
+
+
