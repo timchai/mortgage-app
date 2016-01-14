@@ -1,11 +1,16 @@
 class ApplicationsController < ApplicationController
 
   def index
-    @applications = Application.all
   end
 
   def show
     @application = Application.find(params[:id])
+    require 'json'
+    Rubillow.configure do |configuration|
+    configuration.zwsid = "X1-ZWz1f3hwtklxjf_3csw9"
+    end
+    @rates = Rubillow::Mortgage.rate_summary.today
+
   end
 
   def new
@@ -25,6 +30,6 @@ class ApplicationsController < ApplicationController
   private
 
   def application_params
-    params.require(:application).permit(:id, :first_name, :last_name, :address, :fico_score, :income, :bankruptcy)
+    params.require(:application).permit(:id, :full_name, :address, :fico_score, :income, :bankruptcy, :debt)
   end
 end

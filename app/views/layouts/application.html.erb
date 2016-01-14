@@ -4,6 +4,7 @@
   <title>Capstone</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -60,9 +61,9 @@
                     <li>
                         <a><%= link_to "Application", "/applications/new" %></a>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a><%= link_to "Enter Mortgages", "/loans/new" %></a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
