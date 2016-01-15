@@ -4,11 +4,14 @@
 
   <div class="show">Your loan has been approved.</div>
 
-  <div class="show">Max loan: <%= number_to_currency(@application.max_loan(@rates, :thiry_year_fixed)) %></div>
+  <div class="show">Max loan: <%= number_to_currency(@application.max_loan(@rates)) %></div>
   
-  <div class="show">Your Interest Rate (30-Year Fixed): <%= @application.interest_evaluation(@rates, :thiry_year_fixed) %>%</div>
-  <div class="show">Your Interest Rate (15-Year Fixed): <%= @application.interest_evaluation(@rates, :fifteen_year_fixed) %>%</div>
-  <div class="show">Your Interest Rate (5/1 ARM): <%= @application.interest_evaluation(@rates, :five_one_arm) %>%</div>
+  <div class="show">Your Interest Rate (30-Year Fixed): <%= number_to_percentage(@application.interest_evaluation(@rates, :thiry_year_fixed), precision: 2) %></div>
+  <div class="show">Your Interest Rate (15-Year Fixed): <%= number_to_percentage(@application.interest_evaluation(@rates, :fifteen_year_fixed), precision: 2) %></div>
+  <div class="show">Your Interest Rate (5/1 ARM): <%= number_to_percentage(@application.interest_evaluation(@rates, :five_one_arm), precision: 2) %></div>
+
+
+ 
 <% end %>
 
 

@@ -1,6 +1,6 @@
 <div class="rate"><h1>Today's Mortgage Rates</h1>
-<h3>30 year fixed rate: <%= @rates[:thiry_year_fixed] %>%</h2>
-<h3>15 year fixed rate: <%= @rates[:fifteen_year_fixed] %>%</h2>
-<h3>5/1 ARM: <%= @rates[:five_one_arm] %>%</h2></div>
+<h3>30 year fixed rate: <%= number_to_percentage(@rates[:thiry_year_fixed], precision: 2) %></h2>
+<h3>15 year fixed rate: <%= number_to_percentage(@rates[:fifteen_year_fixed], precision: 2) %></h2>
+<h3>5/1 ARM: <%= number_to_percentage(@rates[:five_one_arm], precision: 2) %></h2></div>
 
 <%= column_chart({"30-Year Fixed" => @rates[:thiry_year_fixed], "15-Year Fixed" => @rates[:fifteen_year_fixed], "5/1 ARM" => @rates[:five_one_arm]}) %>
