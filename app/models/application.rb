@@ -18,31 +18,20 @@ class Application < ActiveRecord::Base
     end
   end
 
-  # def monthly_payment_30(rates)
-    # return max_loan * ((rates[:thiry_year_fixed].to_i)/(12*100)) / ((1 - ((1 + (rates[:thiry_year_fixed].to_i)/(12*100))**-360)))
+  def monthly_payment_30(rates)
+    return 500000 * (((rates[:thiry_year_fixed].to_f/100)/1200)/(1 - ((1 + ((rates[:thiry_year_fixed].to_f/100)/1200)) ** -360)))
+  end
+
+  def monthly_payment_15(rates)
+    return 500000 * (((rates[:fifteen_year_fixed].to_f)/100)/(1200)/(1 - ((1 + ((rates[:fifteen_year_fixed].to_f)/100)/(1200)) ** -180)))
+  end
+
+  # def monthly_payment_arm(rates)
   # end
 
 end
 
-    # if self.income - self.debt <= 20000
-    #   return "You might want to think about renting."
-    # elsif self.income - self.debt > 20000 && self.income - self.debt <= 50000
-    #   return 1000
-    # elsif self.income - self.debt > 50000 && self.income - self.debt <= 75000
-    #   return "Almost there"
-    # elsif self.income - self.debt > 75000 && self.income - self.debt<= 100000
-    #   return 290000
-    # elsif self.income - self.debt > 100000 && self.income - self.debt <= 150000
-    #   return "I'll loan you $500,000"
-    # elsif self.income - self.debt > 150000 && self.income - self.debt <= 200000
-    #   return "650,000"
-    # elsif self.income - self.debt > 200000 && self.income - self.debt <= 250000
-    #   return "900,000"
-    # elsif self.income - self.debt > 250000 && self.income - self.debt < 1000000
-    #   return "1 million, yeah!"
-    # elsif self.income >= 1000000
-    #   return "You make too much money!  Do you really need a loan?"
-    # end
+    
 
 
 
