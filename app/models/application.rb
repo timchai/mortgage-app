@@ -27,24 +27,36 @@ class Application < ActiveRecord::Base
   end
 
   def mortgage_payment_30(rates)
-    return @max_loan * (((rates[:thiry_year_fixed].to_f/100)/1200)/(1 - ((1 + ((rates[:thiry_year_fixed].to_f/100)/1200)) ** -360)))
+    @mortgage_payment_30 = @max_loan * (((rates[:thiry_year_fixed].to_f/100)/1200)/(1 - ((1 + ((rates[:thiry_year_fixed].to_f/100)/1200)) ** -360)))
+    return @mortgage_payment_30
   end
 
   def mortgage_payment_15(rates)
-    return @max_loan * (((rates[:fifteen_year_fixed].to_f)/100)/(1200)/(1 - ((1 + ((rates[:fifteen_year_fixed].to_f)/100)/(1200)) ** -180)))
+    @mortgage_payment_15 = @max_loan * (((rates[:fifteen_year_fixed].to_f)/100)/(1200)/(1 - ((1 + ((rates[:fifteen_year_fixed].to_f)/100)/(1200)) ** -180)))
+    return @mortgage_payment_15
   end
 
   def mortgage_payment_arm(rates)
-    return @max_loan * (((rates[:five_one_arm].to_f/100)/1200)/(1 - ((1 + ((rates[:five_one_arm].to_f/100)/1200)) ** -360)))
+    @mortgage_payment_arm = @max_loan * (((rates[:five_one_arm].to_f/100)/1200)/(1 - ((1 + ((rates[:five_one_arm].to_f/100)/1200)) ** -360)))
+    return @mortgage_payment_arm
   end
 
   def property_taxes
-    return (@max_purchase * 0.013)/12
+    @property_taxes = (@max_purchase * 0.013)/12
+    return @property_taxes
   end
 
-  # def total_payment
-  #   return @
-  # end
+  def total_payment_30
+    return @mortgage_payment_30 + @property_taxes + INSURANCE
+  end
+
+  def total_payment_15
+    return @mortgage_payment_15 + @property_taxes + INSURANCE
+  end
+
+  def total_payment_arm
+    return @mortgage_payment_arm + @property_taxes + INSURANCE
+  end
 
 end
 
