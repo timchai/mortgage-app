@@ -30,6 +30,6 @@ class ApplicationsController < ApplicationController
   private
 
   def application_params
-    params.require(:application).permit(:id, :full_name, :address, :fico_score, :income, :bankruptcy, :debt)
+    params.require(:application).permit(:id, :full_name, :address, :fico_score, :income, :bankruptcy, :down_payment)
   end
 end
