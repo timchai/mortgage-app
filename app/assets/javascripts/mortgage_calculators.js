@@ -11,6 +11,10 @@ $( document ).ready(function() {
     return result.toFixed(2);
   };
 
+  function formatNumber (num) {
+    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
+  }
+
   $( "#calculate" ).click(function() {
     // get values from form and calculate monthly payments
     var loanprincipal = document.getElementById("loansize").value,
@@ -18,7 +22,7 @@ $( document ).ready(function() {
         interest = document.getElementById("interest").value / 1200,
         monthlyPayment = calculateMonthlyPayments(loanprincipal, months, interest);
     // update page with payment    
-    document.getElementById('monthlyPayment').innerHTML = 'Your monthly payment will be ' + '$' + monthlyPayment +'.';
+    document.getElementById('monthlyPayment').innerHTML = 'Your monthly payment will be ' + '$' + formatNumber(monthlyPayment) +'.';
   
   });
 });

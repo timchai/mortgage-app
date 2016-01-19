@@ -1,14 +1,18 @@
+.center {
+    align-items: center;
+    }
+
 .show {
         display: inherit;
         margin: 0;
         padding: 5px 0 5px;
-        text-align: left;
+        text-align: center;
         text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         font-family: "Josefin Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
         font-size: 2em;
         font-weight: 400;
         line-height: normal;
-        color: #fff;
+        color: #000;
     }
 
 .rate {

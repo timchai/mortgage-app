@@ -4,31 +4,35 @@
     <div class="show">It's impossible to have a fico score over 850.  Please try again.</div>
     <div class="show"><% link_to "Please try again", "/applications/new" %></div>
 <% else %>
+  
+  <div class="pie-chart">
+    <div class="letter">You're approved for a loan of <%= number_to_currency(@application.max_loan(@rates)) %> with a purchase price of <%= number_to_currency(@application.max_purchase) %>.</div>
+  </div>
+  <br>
 
+  <% @application.mortgage_payment_30(@rates) %>
+  <% @application.mortgage_payment_15(@rates) %>
+  <% @application.mortgage_payment_arm(@rates) %>
+  <% @application.property_taxes %>
 
-<div class="show">You're approved for a loan of <%= number_to_currency(@application.max_loan(@rates)) %> with a purchase price of <%= number_to_currency(@application.max_purchase) %></div>
+  <div class="pie-chart">
+    <div class="show">Your Monthly Total Payment (30-Year Fixed): <%= number_to_currency(@application.total_payment_30) %></div>
+    <div class="show">Your Interest Rate (30-Year Fixed): <%= number_to_percentage(@application.interest_evaluation(@rates, :thiry_year_fixed), precision: 2) %></div>
+  </div>
 
-<div class="show">Your Monthly Mortgage Payment (15-Year Fixed): <%= number_to_currency(@application.mortgage_payment_15(@rates)) %></div>
+  <%= pie_chart({"Mortgage Payment: #{number_to_currency(@application.mortgage_payment_30(@rates))}" => @application.mortgage_payment_30(@rates), "Property Taxes: #{number_to_currency(@application.property_taxes)}" => @application.property_taxes, "Insurance: #{number_to_currency(Application::INSURANCE)}" => Application::INSURANCE}) %>
 
-<div class="show">Your Monthly Mortgage Payment (5/1 ARM): <%= number_to_currency(@application.mortgage_payment_arm(@rates)) %></div>
-<div class="show">Monthly Property Taxes: <%= number_to_currency(@application.property_taxes) %></div>
+  <div class="pie-chart">
+    <div class="show">Your Monthly Total Payment (15-Year Fixed): <%= number_to_currency(@application.total_payment_15) %></div>
+    <div class="show">Your Interest Rate (15-Year Fixed): <%= number_to_percentage(@application.interest_evaluation(@rates, :fifteen_year_fixed), precision: 2) %></div>
+    </div>
+  <%= pie_chart({"Mortgage Payment: #{number_to_currency(@application.mortgage_payment_15(@rates))}" => @application.mortgage_payment_15(@rates), "Property Taxes: #{number_to_currency(@application.property_taxes)}" => @application.property_taxes, "Insurance: #{number_to_currency(Application::INSURANCE)}" => Application::INSURANCE}) %>
 
-<div class="show">Your Monthly Mortgage Payment (30-Year Fixed): <%= number_to_currency(@application.mortgage_payment_30(@rates)) %></div>
-
-<br>
-
-<div class="show">Your Monthly Total Payment (30-Year Fixed): <%= number_to_currency(@application.total_payment_30) %></div>
-<div class="show">Your Interest Rate (30-Year Fixed): <%= number_to_percentage(@application.interest_evaluation(@rates, :thiry_year_fixed), precision: 2) %></div>
-
-<%= pie_chart({"Mortgage Payment: #{number_to_currency(@application.mortgage_payment_30(@rates))}" => @application.mortgage_payment_30(@rates), "Property Taxes: #{number_to_currency(@application.property_taxes)}" => @application.property_taxes, "Insurance: #{number_to_currency(Application::INSURANCE)}" => Application::INSURANCE}) %>
-<br>
-<div class="show">Your Monthly Total Payment (15-Year Fixed): <%= number_to_currency(@application.total_payment_15) %></div>
-<div class="show">Your Interest Rate (15-Year Fixed): <%= number_to_percentage(@application.interest_evaluation(@rates, :fifteen_year_fixed), precision: 2) %></div>
-<%= pie_chart({"Mortgage Payment: #{number_to_currency(@application.mortgage_payment_15(@rates))}" => @application.mortgage_payment_15(@rates), "Property Taxes: #{number_to_currency(@application.property_taxes)}" => @application.property_taxes, "Insurance: #{number_to_currency(Application::INSURANCE)}" => Application::INSURANCE}) %>
-<br>
-<div class="show">Your Monthly Total Payment (5/1 ARM): <%= number_to_currency(@application.total_payment_arm) %></div>
-<div class="show">Your Interest Rate (5/1 ARM): <%= number_to_percentage(@application.interest_evaluation(@rates, :five_one_arm), precision: 2) %></div>
-<%= pie_chart({"Mortgage Payment: #{number_to_currency(@application.mortgage_payment_arm(@rates))}" => @application.mortgage_payment_arm(@rates), "Property Taxes: #{number_to_currency(@application.property_taxes)}" => @application.property_taxes, "Insurance: #{number_to_currency(Application::INSURANCE)}" => Application::INSURANCE}) %>
+  <div class="pie-chart">
+    <div class="show">Your Monthly Total Payment (5/1 ARM): <%= number_to_currency(@application.total_payment_arm) %></div>
+    <div class="show">Your Interest Rate (5/1 ARM): <%= number_to_percentage(@application.interest_evaluation(@rates, :five_one_arm), precision: 2) %></div>
+  </div>
+  <%= pie_chart({"Mortgage Payment: #{number_to_currency(@application.mortgage_payment_arm(@rates))}" => @application.mortgage_payment_arm(@rates), "Property Taxes: #{number_to_currency(@application.property_taxes)}" => @application.property_taxes, "Insurance: #{number_to_currency(Application::INSURANCE)}" => Application::INSURANCE}) %>
 
 <% end %>
 
