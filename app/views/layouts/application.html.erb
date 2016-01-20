@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Capstone</title>
+  <title>Mortgage Finder</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
@@ -17,11 +17,11 @@
 
 <ul class="nav navbar-nav navbar-right">
       <% if current_user %>
-        <li><%= current_user.email %> is signed in</li><br>
-        <li><%= link_to "Sign Out", "/users/sign_out", method: :delete %></li>
+        <li><%= current_user.email %> is logged in</li><br>
+        <li><%= link_to "Logout", "/users/sign_out", method: :delete %></li>
       <% else %>
-        <li><%= link_to "Sign Up", "/users/sign_up" %></li><br>
-        <li><%= link_to "Sign In", "/users/sign_in" %></li>
+        <li><%= link_to "Register | ", "/users/sign_up" %></li>
+        <li><%= link_to "| Login", "/users/sign_in" %></li>
       <% end %>
       </ul>
 

@@ -22,7 +22,7 @@ $( document ).ready(function() {
         interest = document.getElementById("interest").value / 1200,
         monthlyPayment = calculateMonthlyPayments(loanprincipal, months, interest);
     // update page with payment    
-    document.getElementById('monthlyPayment').innerHTML = 'Your monthly payment will be ' + '$' + formatNumber(monthlyPayment) +'.';
+    document.getElementById('monthlyPayment').innerHTML = 'Your estimated monthly mortgage payment will be ' + '$' + formatNumber(monthlyPayment) +'.';
   
   });
 });
