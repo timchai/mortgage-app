@@ -1,8 +1,7 @@
 <% if (@application.bankruptcy == true) || (@application.fico_score < 550) %>
-   <div class="show">Your loan has been denied.</div>
+   <div class="pie-chart"><div class="letter">We regret to inform you that we are unable to approve a loan for you at this time.</div></div>
 <% elsif @application.fico_score > 850 %>
-    <div class="show">It's impossible to have a fico score over 850.  Please try again.</div>
-    <div class="show"><% link_to "Please try again", "/applications/new" %></div>
+    <div class="pie-chart"><div class="letter">It's impossible to have a fico score over 850.  Please try again.</div></div>
 <% else %>
   
   <div class="pie-chart">
