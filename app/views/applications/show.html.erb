@@ -29,7 +29,7 @@
 
   <div class="pie-chart">
     <div class="header">5/1 ARM</div>
-    <div class="show">Monthly Total Monthly Payment: <%= number_to_currency(@application.total_payment_arm) %><br>Interest Rate: <%= number_to_percentage(@application.interest_evaluation(@rates, :five_one_arm), precision: 2) %></div>
+    <div class="show">Total Monthly Payment: <%= number_to_currency(@application.total_payment_arm) %><br>Interest Rate: <%= number_to_percentage(@application.interest_evaluation(@rates, :five_one_arm), precision: 2) %></div>
   <%= pie_chart({"Mortgage Payment: #{number_to_currency(@application.mortgage_payment_arm(@rates))}" => @application.mortgage_payment_arm(@rates), "Property Taxes: #{number_to_currency(@application.property_taxes)}" => @application.property_taxes, "Insurance: #{number_to_currency(Application::INSURANCE)}" => Application::INSURANCE}, library: {legend: {textStyle: {fontSize: 22}}}) %>
   </div>
 
